@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Controles para agregar filas y columnas -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnAddRow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Agregar Fila" />
+
+            <Button
+                android:id="@+id/btnAddColumn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Agregar Columna"
+                android:layout_marginStart="16dp"/>
+        </LinearLayout>
+
+        <!-- GridLayout para las celdas del puzzle -->
+        <GridLayout
+            android:id="@+id/gridPuzzle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:alignmentMode="alignMargins"
+            android:rowOrderPreserved="false"
+            android:columnCount="3"
+            android:rowCount="3">
+            <!-- Las casillas se agregarán dinámicamente desde el código -->
+        </GridLayout>
+
+        <!-- Botón para iniciar la solución -->
+        <Button
+            android:id="@+id/btnSolve"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Resolver Puzzle"
+            android:layout_marginTop="16dp" />
+
+        <!-- Chronometer para medir el tiempo -->
+        <Chronometer
+            android:id="@+id/chronometer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" />
+
+        <!-- TextView para mostrar los pasos de la solución -->
+        <TextView
+            android:id="@+id/tvSteps"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pasos:"
+            android:layout_marginTop="16dp"
+            android:padding="8dp" />
+    </LinearLayout>
+</ScrollView>
