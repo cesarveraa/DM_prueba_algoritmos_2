@@ -1,69 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
 
+    <!-- Controles para filas/columnas -->
     <LinearLayout
-        android:orientation="vertical"
-        android:padding="16dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-        <!-- Controles para agregar filas y columnas -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btnAddRow"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Agregar Fila" />
-
-            <Button
-                android:id="@+id/btnAddColumn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Agregar Columna"
-                android:layout_marginStart="16dp"/>
-        </LinearLayout>
-
-        <!-- GridLayout para las celdas del puzzle -->
-        <GridLayout
-            android:id="@+id/gridPuzzle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:alignmentMode="alignMargins"
-            android:rowOrderPreserved="false"
-            android:columnCount="3"
-            android:rowCount="3">
-            <!-- Las casillas se agregarán dinámicamente desde el código -->
-        </GridLayout>
-
-        <!-- Botón para iniciar la solución -->
         <Button
-            android:id="@+id/btnSolve"
-            android:layout_width="wrap_content"
+            android:id="@+id/btnAddRow"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Resolver Puzzle"
-            android:layout_marginTop="16dp" />
+            android:layout_weight="1"
+            android:text="Agregar Fila"/>
 
-        <!-- Chronometer para medir el tiempo -->
-        <Chronometer
-            android:id="@+id/chronometer"
-            android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/btnAddColumn"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp" />
+            android:layout_weight="1"
+            android:text="Agregar Columna"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
 
-        <!-- TextView para mostrar los pasos de la solución -->
+    <!-- Grid del puzzle -->
+    <GridLayout
+        android:id="@+id/gridPuzzle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:columnCount="3"
+        android:rowCount="3"/>
+
+    <!-- Botón resolver -->
+    <Button
+        android:id="@+id/btnSolve"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Resolver Puzzle"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Chronometer -->
+    <Chronometer
+        android:id="@+id/chronometer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"/>
+
+    <!-- ScrollView PARA LOS PASOS SOLAMENTE -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/darker_gray"
+        android:padding="8dp">
+
         <TextView
             android:id="@+id/tvSteps"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Pasos:"
-            android:layout_marginTop="16dp"
-            android:padding="8dp" />
-    </LinearLayout>
-</ScrollView>
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:lineSpacingMultiplier="1.2"
+            android:fontFamily="monospace"/>
+    </ScrollView>
+
+</LinearLayout>
